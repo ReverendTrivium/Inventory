@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">FromStore2Core</string>
+    <string name="app_name">FromStoreToCore</string>
+    <string name="no_description">No description</string>
+    <string name="untitled">Untitled</string>
+    <string name="save">Create a new list</string>
+    <string name="title_new">List Name</string>
+    <string name="mask_until_value">US$</string>
 </resources>

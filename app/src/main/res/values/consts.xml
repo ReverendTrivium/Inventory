@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="id_shopping_list">idLista</string>
+
+
+    <string-array name="orientation_style_list_values">
+        <item>""</item>
+        <item>"ASC"</item>
+        <item>"DESC"</item>
+    </string-array>
+
+</resources>

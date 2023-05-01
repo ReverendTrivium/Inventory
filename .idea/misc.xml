@@ -3,7 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/drawable-v24/ic_store2coresmall_recovered6__converted_.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/drawable-v24/item_list_row_delete.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/drawable-v24/item_list_row_note.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/drawable-v24/splash_image.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/layout/activity_main.xml" value="0.11614583333333334" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/layout/item_input.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/layout/item_list_row.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/layout/lists_row.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/layout/load_lists.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/layout/logo_launchscreen.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/Dell E6520 i7/Documents/College Classes/CSE 499/FromStore2Core/app/src/main/res/layout/new_list.xml" value="0.13020833333333334" />
       </map>
     </option>
   </component>
