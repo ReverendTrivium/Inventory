@@ -18,7 +18,6 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select Saved List"
         android:textAlignment="center"
         android:textSize="48sp" />
 
