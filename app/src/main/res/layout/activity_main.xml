@@ -43,5 +43,15 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/NewList" />
+    <Button
+            android:id="@+id/loadList"
+            android:layout_width="160dp"
+            android:layout_height="60dp"
+            android:onClick="LoadList"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/LoadList" android:layout_marginTop="36dp"
+            android:text="Inventory"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
