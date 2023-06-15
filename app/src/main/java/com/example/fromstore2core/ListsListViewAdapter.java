@@ -10,6 +10,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import c.R;
+
 import java.util.ArrayList;
 
 public class ListsListViewAdapter extends ArrayAdapter<GroceryList> {

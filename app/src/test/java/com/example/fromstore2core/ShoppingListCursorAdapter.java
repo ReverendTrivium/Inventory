@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.Toast;
+import c.R;
 
 public class ShoppingListCursorAdapter extends CursorAdapter {
     private Context context;

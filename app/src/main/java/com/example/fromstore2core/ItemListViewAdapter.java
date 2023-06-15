@@ -1,7 +1,6 @@
 package com.example.fromstore2core;
 
 import android.content.Context;
-import android.database.Cursor;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
@@ -13,8 +12,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import java.util.ArrayList;
+import c.R;
 
+import java.util.ArrayList;
 public class ItemListViewAdapter extends ArrayAdapter<GroceryListItems> {
 
     //Creates ItemListViewAdapter instance

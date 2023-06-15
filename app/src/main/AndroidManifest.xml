@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
->
+          package="com.example.fromstore2core">
 
     <application
         android:allowBackup="true"
@@ -24,6 +24,25 @@
         <activity
             android:name=".LoadList"
             android:exported="true" />
+        <activity
+                android:name=".CatalogActivity"
+                android:theme="@style/AppTheme"
+                android:exported="true" />
+        <activity
+                android:name=".EditorActivity"
+                android:parentActivityName=".CatalogActivity"
+                android:exported="true" />
+        <activity
+                android:name=".ItemActivity"
+                android:parentActivityName=".CatalogActivity"
+                android:theme="@style/noTitle"
+                android:exported="true" />
+
+        <provider
+                android:name=".data.ItemProvider"
+                android:authorities="com.example.fromstore2core"
+                android:exported="false" />
+
     </application>
 
 </manifest>

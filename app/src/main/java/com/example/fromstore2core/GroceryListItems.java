@@ -2,6 +2,8 @@ package com.example.fromstore2core;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
+import c.R;
+
 import java.io.Serializable;
 
 public class GroceryListItems implements Serializable {
