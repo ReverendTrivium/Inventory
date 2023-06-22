@@ -104,15 +104,7 @@
 
                                 <com.google.android.material.textfield.TextInputLayout
                                         android:layout_width="match_parent"
-                                        android:layout_height="wrap_content">
-
-                                    <com.google.android.material.textfield.TextInputEditText
-                                            android:id="@+id/edit_item_price"
-                                            style="@style/EditorFieldStyle"
-                                            android:hint="@string/hint_item_price"
-                                            android:inputType="numberDecimal"/>
-
-                                </com.google.android.material.textfield.TextInputLayout>
+                                        android:layout_height="wrap_content"/>
 
 
                             </LinearLayout>

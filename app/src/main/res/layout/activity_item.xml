@@ -103,30 +103,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/price_icon"
-                        android:tint="@color/colorAccent"
-                        android:adjustViewBounds="true"
-                        android:maxWidth="42dp"
-                        android:maxHeight="42dp"
-                        android:paddingTop="16dp"
-                        android:paddingRight="16dp"/>
-
-                <TextView
-                        style="@style/ItemCategoryStyle"
-                        android:text="Price: " />
-
                 <!-- Dummy view takes up maximum space to right align everything-->
                 <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"></View>
-
-                <TextView
-                        style="@style/ItemFieldStyle"
-                        android:text="@string/dollarSign"/>
 
                 <TextView
                         android:id="@+id/item_price_field"

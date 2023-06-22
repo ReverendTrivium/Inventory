@@ -104,8 +104,8 @@ public class ItemDbHelper extends SQLiteOpenHelper{
         return searchResults;
     }
 
+
     // added an 's' after getName
-    // dont really need these 2 methods
     public List<String> getNames(){
 
         String[] projection = {
@@ -123,6 +123,7 @@ public class ItemDbHelper extends SQLiteOpenHelper{
         return searchResults;
     }
 
+    // Don't really need function
     public List<SearchResult> getResultNames(String name){
 
         String[] projection = {

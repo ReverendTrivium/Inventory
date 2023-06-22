@@ -162,7 +162,7 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
                 ItemContract.ItemEntry._ID,
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME,
                 ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY,
-                ItemContract.ItemEntry.COLUMN_ITEM_PRICE,
+//                ItemContract.ItemEntry.COLUMN_ITEM_PRICE,
                 ItemContract.ItemEntry.COLUMN_ITEM_DESCRIPTION,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG1,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG2,
@@ -189,7 +189,7 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
             // Find the columns of pet attributes that we're interested in
             int nameColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_NAME);
             int quantityColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY);
-            int priceColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_PRICE);
+//            int priceColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_PRICE);
             int descriptionColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_DESCRIPTION);
             int tag1ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG1);
             int tag2ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG2);
@@ -199,7 +199,7 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
             // Extract out the value from the Cursor for the given column index
             String name = data.getString(nameColumnIndex);
             int quantity = data.getInt(quantityColumnIndex);
-            double price = data.getDouble(priceColumnIndex);
+//            double price = data.getDouble(priceColumnIndex);
             String description = data.getString(descriptionColumnIndex);
             String tag1 = data.getString(tag1ColumnIndex);
             String tag2 = data.getString(tag2ColumnIndex);
@@ -215,7 +215,7 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
             // Update the views on the screen with the values from the database
             quantityView.setText(Integer.toString(quantity));
             DecimalFormat formatter = new DecimalFormat("#0.00");
-            priceView.setText(formatter.format(price));
+//            priceView.setText(formatter.format(price));
             descriptionView.setText(description);
             imageView.setImageBitmap(theImage);
 

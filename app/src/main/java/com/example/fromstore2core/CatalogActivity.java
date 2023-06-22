@@ -371,11 +371,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
     }
 
-    private void startSearch(String s) {
-
-//        adapter = new SearchAdapter(this, database.getResultNames(s));
-    }
-
     private void loadSearchResultList() {
         searchResultList = database.getResult();
     }
@@ -392,7 +387,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                 MySuggestions.moreresults[i] = searchResult.getId();
                 i++;
 
-//                com.example.fromstore2core.MySuggestions.newSuggestions_id.add(1);
                 Log.d("_id", String.valueOf(searchResult.getId()));
             }
         }

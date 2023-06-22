@@ -12,9 +12,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.fromstore2core.R;
-
+import com.example.fromstore2core.data.ItemDbHelper;
+import android.util.Log;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 public class NewList extends AppCompatActivity {
 
@@ -24,6 +26,12 @@ public class NewList extends AppCompatActivity {
     private static GroceryList grocerylist;
 
     Boolean isChecked = false;
+
+    // Database for Home Inventory app
+    ItemDbHelper database;
+
+    // Search Result for Home Inventory app
+    List<String> searchResultList = new ArrayList<String>();
     public static ItemListViewAdapter listAdapter;
     GroceryListItemsDAO groceryListItemsDAO = new GroceryListItemsDAO(this);
 
@@ -35,6 +43,9 @@ public class NewList extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        // Create a new instance of the database for access to the searchbar
+        database = new ItemDbHelper(this);
 
         try {
             grocerylist = GroceryListDAO.select(this, getIntent().getExtras().getInt("groceryList"));
@@ -92,27 +103,36 @@ public class NewList extends AppCompatActivity {
         builder.setView(input);
         builder.setPositiveButton("OK", (dialog, which) -> {
             String newItem = input.getText().toString();
-            items.add(newItem);
 
-            try {
-                GroceryListItemsDAO.insert(this, new GroceryListItems(0, grocerylist.getId(), newItem, false));
-            } catch (Exception e) {
-                e.printStackTrace();
+            // Call Upon Inventory MysQL database to see if item matches one in inventory
+            boolean found = inventoryCheck(newItem);
+
+            if (found != true) {
+                // Add item to Grocery List
+                items.add(newItem);
+
+                try {
+                    GroceryListItemsDAO.insert(this, new GroceryListItems(0, grocerylist.getId(), newItem, false));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                try {
+                    GroceryListItemsDAO groceryListItemsDAO = new GroceryListItemsDAO(this);
+                    groceryItems = groceryListItemsDAO.getListItems(grocerylist.getId());
+                    listAdapter = new ItemListViewAdapter(this, groceryItems);
+                    lv_groceryList.setAdapter(listAdapter);
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                Toast toast = Toast.makeText(getApplicationContext(), "Item Added: " + newItem, Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(), "Item " + newItem + " found in home inventory, not added to grocery list.", Toast.LENGTH_SHORT);
+                toast.show();
             }
-
-            try {
-                GroceryListItemsDAO groceryListItemsDAO = new GroceryListItemsDAO(this);
-                groceryItems = groceryListItemsDAO.getListItems(grocerylist.getId());
-                listAdapter = new ItemListViewAdapter(this, groceryItems);
-                lv_groceryList.setAdapter(listAdapter);
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            Toast toast = Toast.makeText(getApplicationContext(), "Item Added: " + newItem, Toast.LENGTH_SHORT);
-            toast.show();
-
 
         });
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
@@ -138,5 +158,28 @@ public class NewList extends AppCompatActivity {
         listAdapter.notifyDataSetChanged();
     }
 
+    // Check Home Inventory to see if Grocery List Item is already in there
+    public boolean inventoryCheck(String newItem) {
+        searchResultList = database.getNames();
+        boolean isFound = false;
+
+        for (int i = 0; i < searchResultList.size(); i++) {
+            Log.i("Inventory", "Item in Inventory is: " + searchResultList.get(i));
+            Log.i("Inventory", "New Item being added to Grocery List is: " + newItem);
+            Toast toast = Toast.makeText(getApplicationContext(), "Items in Inventory Database " + searchResultList.get(i), Toast.LENGTH_SHORT);
+            toast.show();
+            String inventory = searchResultList.get(i);
+            if (Objects.equals(newItem, inventory)) {
+                isFound = true;
+                Log.i("Inventory:", "CUrrent Found status is: " + isFound);
+                break;
+
+            }
+        }
+
+        return isFound;
+    }
 }
+
+
 
