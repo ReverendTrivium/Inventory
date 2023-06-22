@@ -2,7 +2,7 @@ package com.example.fromstore2core;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import c.R;
+import com.example.fromstore2core.R;
 
 import java.io.Serializable;
 

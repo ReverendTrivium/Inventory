@@ -16,10 +16,10 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import c.R;
 import com.example.fromstore2core.Search.CustomSuggestionsAdapter;
 import com.example.fromstore2core.Search.RecyclerTouchListener;
 import com.example.fromstore2core.Search.SearchAdapter;
@@ -129,6 +129,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_catalog);
 
@@ -270,7 +273,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         });
 
         // On click method for suggestions
-        RecyclerView searchrv = findViewById(R.id.catalog_fab);
+        RecyclerView searchrv = findViewById(R.id.mt_recycler);
         searchrv.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), searchrv, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -414,6 +417,9 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
             // Respond to a click on the "Delete all entries" menu option
+            case android.R.id.home:
+                this.finish();
+                return true;
             case R.id.action_delete_all_entries:
                 // delete entries
                 showDeleteAllConfirmationDialog();

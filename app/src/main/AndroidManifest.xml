@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FromStoreToCore">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.fromstore2core.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,27 +19,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewList"
+            android:name="com.example.fromstore2core.NewList"
             android:exported="true" />
         <activity
-            android:name=".LoadList"
+            android:name="com.example.fromstore2core.LoadList"
             android:exported="true" />
         <activity
-                android:name=".CatalogActivity"
+                android:name="com.example.fromstore2core.CatalogActivity"
                 android:theme="@style/AppTheme"
                 android:exported="true" />
         <activity
-                android:name=".EditorActivity"
-                android:parentActivityName=".CatalogActivity"
+                android:name="com.example.fromstore2core.EditorActivity"
+                android:parentActivityName="com.example.fromstore2core.CatalogActivity"
                 android:exported="true" />
         <activity
-                android:name=".ItemActivity"
-                android:parentActivityName=".CatalogActivity"
+                android:name="com.example.fromstore2core.ItemActivity"
+                android:parentActivityName="com.example.fromstore2core.CatalogActivity"
                 android:theme="@style/noTitle"
                 android:exported="true" />
-
         <provider
-                android:name=".data.ItemProvider"
+                android:name="com.example.fromstore2core.data.ItemProvider"
                 android:authorities="com.example.fromstore2core"
                 android:exported="false" />
 

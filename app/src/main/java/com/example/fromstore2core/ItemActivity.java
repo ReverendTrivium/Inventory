@@ -20,7 +20,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import c.R;
+import com.example.fromstore2core.R;
 import com.example.fromstore2core.data.ItemContract;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 

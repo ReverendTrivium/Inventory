@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-import c.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -55,9 +54,13 @@ public class MainActivity extends AppCompatActivity {
     //Loads a list
     public void LoadList(View view) throws Exception {
 
-        Intent intent = new Intent(this, LoadList.class);
+        Intent intent = new Intent(MainActivity.this, LoadList.class);
         startActivity(intent);
 
     }
 
+    public void Inventory(View view) throws Exception {
+        Intent intent = new Intent (MainActivity.this, CatalogActivity.class);
+        startActivity(intent);
+    }
 }
