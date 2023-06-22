@@ -173,10 +173,8 @@ public class NewList extends AppCompatActivity {
                 isFound = true;
                 Log.i("Inventory:", "CUrrent Found status is: " + isFound);
                 break;
-
             }
         }
-
         return isFound;
     }
 }
