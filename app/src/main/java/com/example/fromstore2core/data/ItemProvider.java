@@ -10,7 +10,7 @@ import android.net.Uri;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.example.fromstore2core.R;
+
 
 public class ItemProvider extends ContentProvider{
 
@@ -85,9 +85,9 @@ public class ItemProvider extends ContentProvider{
                 throw new IllegalArgumentException("Cannot query unknown URI " + uri);
         }
 
-//        // Set notification URI on the Cursor,
-//        // so we know what content URI the Cursor was created for.
-//        // If the data at this URI changes, then we know we need to update the Cursor.
+        // Set notification URI on the Cursor,
+        // so we know what content URI the Cursor was created for.
+        // If the data at this URI changes, then we know we need to update the Cursor.
         cursor.setNotificationUri(getContext().getContentResolver(), uri);
 
         // Return the cursor
@@ -201,7 +201,6 @@ public class ItemProvider extends ContentProvider{
             return 0;
         }
 
-        // TODO: 2018-07-07 handle this exception (check pets database for more info) 
         if (values.containsKey(ItemContract.ItemEntry.COLUMN_ITEM_NAME)) {
             String name = values.getAsString(ItemContract.ItemEntry.COLUMN_ITEM_NAME);
             if (name == null) {

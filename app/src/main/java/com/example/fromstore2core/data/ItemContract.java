@@ -79,13 +79,6 @@ public class ItemContract {
         public final static String COLUMN_ITEM_QUANTITY = "quantity";
 
         /**
-         * Price of the item.
-         *
-         * Type: TEXT (Float)
-         */
-        public final static String COLUMN_ITEM_PRICE = "price";
-
-        /**
          * Description of the product
          *
          * Type: TEXT (String)

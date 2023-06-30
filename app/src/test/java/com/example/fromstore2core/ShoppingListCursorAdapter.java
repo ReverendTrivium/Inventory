@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.Toast;
 import com.example.fromstore2core.R;
+import com.example.fromstore2core.data.GroceryListDAO;
+import com.example.fromstore2core.grocerylist.GroceryList;
 
 public class ShoppingListCursorAdapter extends CursorAdapter {
     private Context context;

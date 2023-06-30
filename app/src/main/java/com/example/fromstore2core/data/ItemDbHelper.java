@@ -48,7 +48,6 @@ public class ItemDbHelper extends SQLiteOpenHelper{
                 + ItemEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ItemEntry.COLUMN_ITEM_NAME + " TEXT NOT NULL, "
                 + ItemEntry.COLUMN_ITEM_QUANTITY + " INTEGER DEFAULT 0, "
-                + ItemEntry.COLUMN_ITEM_PRICE + " DOUBLE DEFAULT 0, "
                 + ItemEntry.COLUMN_ITEM_DESCRIPTION + " TEXT, "
                 + ItemEntry.COLUMN_ITEM_TAG1 + " TEXT, "
                 + ItemEntry.COLUMN_ITEM_TAG2 + " TEXT, "
@@ -59,17 +58,8 @@ public class ItemDbHelper extends SQLiteOpenHelper{
 
         // Execute the SQL statement
         db.execSQL(SQL_CREATE_ITEMS_TABLE);
-        /*
-        String SQL_CREATE_PETS_TABLE =  "CREATE TABLE " + PetEntry.TABLE_NAME + " ("
-                + PetEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + PetEntry.COLUMN_PET_NAME + " TEXT NOT NULL, "
-                + PetEntry.COLUMN_PET_BREED + " TEXT, "
-                + PetEntry.COLUMN_PET_GENDER + " INTEGER NOT NULL, "
-                + PetEntry.COLUMN_PET_WEIGHT + " INTEGER NOT NULL DEFAULT 0);";
-         */
     }
 
-    @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.e("ItemDbHelper","inside onUpgrade");
     }
@@ -83,8 +73,7 @@ public class ItemDbHelper extends SQLiteOpenHelper{
         String[] projection = {
                 ItemContract.ItemEntry._ID,
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME,
-                ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY,
-                ItemContract.ItemEntry.COLUMN_ITEM_PRICE};
+                ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY};
 
         Cursor cursor = context.getContentResolver().query(ItemEntry.CONTENT_URI, projection, null, null, null);
 
@@ -95,7 +84,6 @@ public class ItemDbHelper extends SQLiteOpenHelper{
                 result.setId( cursor.getInt( cursor.getColumnIndex( ItemEntry._ID ) ) );
                 result.setName( cursor.getString( cursor.getColumnIndex( ItemEntry.COLUMN_ITEM_NAME ) ) );
                 result.setQuantity( cursor.getDouble( cursor.getColumnIndex( ItemEntry.COLUMN_ITEM_QUANTITY ) ) );
-                result.setPrice( cursor.getDouble( cursor.getColumnIndex( ItemEntry.COLUMN_ITEM_PRICE ) ) );
 
                 searchResults.add(result);
             }while(cursor.moveToNext());
@@ -123,14 +111,14 @@ public class ItemDbHelper extends SQLiteOpenHelper{
         return searchResults;
     }
 
-    // Don't really need function
+    // Don't really need function,
+    // keeping it for future updates, in case it is needed.
     public List<SearchResult> getResultNames(String name){
 
         String[] projection = {
                 ItemContract.ItemEntry._ID,
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME,
-                ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY,
-                ItemContract.ItemEntry.COLUMN_ITEM_PRICE};
+                ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY};
 
         String selection = ItemEntry.COLUMN_ITEM_NAME + " LIKE ?";
         String[] selectionArgs = new String[] {"&" + name + "%"};
@@ -145,7 +133,6 @@ public class ItemDbHelper extends SQLiteOpenHelper{
                 result.setId( cursor.getInt( cursor.getColumnIndex( ItemEntry._ID ) ) );
                 result.setName( cursor.getString( cursor.getColumnIndex( ItemEntry.COLUMN_ITEM_NAME ) ) );
                 result.setQuantity( cursor.getDouble( cursor.getColumnIndex( ItemEntry.COLUMN_ITEM_QUANTITY ) ) );
-                result.setPrice( cursor.getDouble( cursor.getColumnIndex( ItemEntry.COLUMN_ITEM_PRICE ) ) );
 
                 searchResults.add(result);
             }while(cursor.moveToNext());

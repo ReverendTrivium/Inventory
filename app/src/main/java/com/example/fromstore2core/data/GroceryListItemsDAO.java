@@ -1,10 +1,13 @@
-package com.example.fromstore2core;
+package com.example.fromstore2core.data;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import com.example.fromstore2core.grocerylist.GroceryList;
+import com.example.fromstore2core.grocerylist.GroceryListItems;
+
 import java.util.ArrayList;
 
 public class GroceryListItemsDAO {

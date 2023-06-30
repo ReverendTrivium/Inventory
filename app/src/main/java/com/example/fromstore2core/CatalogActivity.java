@@ -32,8 +32,6 @@ import com.mancj.materialsearchbar.adapter.SuggestionsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-// TODO: 2018-07-08 add "tags" fields to the database
 public class CatalogActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     /**
@@ -182,22 +180,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         materialSearchBar.setOnSearchActionListener(new MaterialSearchBar.OnSearchActionListener() {
             @Override
             public void onSearchStateChanged(boolean enabled) {
-//                if (!enabled)
-//                    adapter = new SearchAdapter(getBaseContext(), database.getResult());
-////                    recyclerView.setAdapter(null);i
-//                if(enabled) {
-//                    materialSearchBar.enableSearch();
-//                    materialSearchBar.setCustomSuggestionAdapter(customSuggestionsAdapter);
-//                }
-//                else {
-//                    materialSearchBar.clearSuggestions();
-//                    materialSearchBar.disableSearch();
-//                }
-//                if (flag1 == 0) {
-//                    if (enabled)
-//                        materialSearchBar.showSuggestionsList();
-//                }
-
             }
 
             @Override
@@ -278,18 +260,10 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
             @Override
             public void onClick(View view, int position) {
 
-                //id works with original search list but not new???
-//                int _id = searchResultList.get(position)._id;
-// TODO: 2018-07-13 clean up code here since we dont need _id anymore now that we have the searchResult object
                 // need testResult1 to work for some reason???
                 List<SearchResult> testResult1 = loadNewSearchResultList();
                 SearchResult testResult2 = testResult1.get(position);
                 int testResult3 = testResult2.getId();
-
-//                Log.e("catalog", "position = " + String.valueOf(position));
-//                Log.e("catalog", "_id = " + String.valueOf(_id));
-//                Log.e("catalog", "testResult3 = " + String.valueOf(testResult3));
-
 
                 Intent intent = new Intent(CatalogActivity.this, ItemActivity.class);
 
@@ -460,7 +434,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         }
     }
 
-    // TODO: 2018-07-08 put sortAllItems in setPositiveButton 
     private void showSortConfirmationDialog() {
 
         // Create an AlertDialog.Builder and set the message, and click listeners
@@ -521,8 +494,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         String[] projection = {
                 ItemContract.ItemEntry._ID,
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME,
-                ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY,
-                ItemContract.ItemEntry.COLUMN_ITEM_PRICE};
+                ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY};
 
         Log.e("onCreateLoader", "DEFAULT_SORT_ORDER = " + DEFAULT_SORT_ORDER);
 

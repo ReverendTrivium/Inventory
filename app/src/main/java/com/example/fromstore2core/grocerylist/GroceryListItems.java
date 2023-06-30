@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.fromstore2core.grocerylist;
 
 import android.content.Context;
 import androidx.annotation.NonNull;

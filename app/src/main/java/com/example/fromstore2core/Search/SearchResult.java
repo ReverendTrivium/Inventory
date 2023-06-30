@@ -2,16 +2,14 @@ package com.example.fromstore2core.Search;
 
 public class SearchResult {
 
-    // TODO: 2018-07-13 remove initialization later 
     public int _id = 17;
     public String name;
-    public Double quantity, price;
+    public Double quantity;
 
     public SearchResult(int id, String name, Double quanity, Double price){
         this._id = id;
         this.name = name;
         this.quantity = quanity;
-        this.price = price;
     }
 
     public SearchResult(){
@@ -40,14 +38,6 @@ public class SearchResult {
 
     public void setQuantity(Double quantity){
         this.quantity = quantity;
-    }
-
-    public Double getPrice(){
-        return price;
-    }
-
-    public void setPrice(Double price){
-        this.price = price;
     }
 
 }
