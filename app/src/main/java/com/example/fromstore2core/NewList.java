@@ -88,9 +88,28 @@ public class NewList extends AppCompatActivity {
         });
     }
 
-    //Allows user to delete item from list
+    // Allows user to delete item from list
     public static void deleteItem(GroceryListItems item) {
         GroceryListItemsDAO.deleteItem(item);
+    }
+
+    // Allows User to add Notes to Grocery List Item
+    public void addNote(View view) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Item Note");
+        EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_TEXT);
+        builder.setView(input);
+        builder.setPositiveButton("OK", (dialog, which) -> {
+                    String itemNote = input.getText().toString();
+
+
+                });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
+        builder.show();
+
+        //GroceryListItemsDAO
     }
 
     //Updates items in list
@@ -176,7 +195,7 @@ public class NewList extends AppCompatActivity {
             String inventory = searchResultList.get(i);
             if (Objects.equals(newItem, inventory)) {
                 isFound = true;
-                Log.i("Inventory:", "CUrrent Found status is: " + isFound);
+                Log.i("Inventory:", "Current Found status is: " + isFound);
                 break;
             }
         }
