@@ -17,7 +17,6 @@ public class GroceryListItemsDAO {
     public static final String FIELD_IDGROCERYLIST = "IDGROCERYLIST";
     public static final String FIELD_PRODUCT = "DESCRIPTION";
     public static final String FIELD_CHECKED = "CHECKED";
-    public final static String FIELD_NOTE = "NOTE";
 
     private static Context context;
     private static int boolean_column_index = 0;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+                xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15sp"
     >
@@ -27,15 +27,20 @@
 
 
     <ImageView
-        android:layout_width="22sp"
-        android:layout_height="22sp"
-        android:id="@+id/item_delete"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="18sp"
-        android:src="@drawable/item_list_row_delete"
-        android:layout_alignParentRight="true"
-        />
-
+            android:layout_width="22sp"
+            android:layout_height="22sp"
+            android:id="@+id/item_delete"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16sp"
+            android:src="@drawable/item_list_row_delete"
+            android:layout_alignParentRight="true"
+    />
+    <ImageView
+            android:layout_width="22sp"
+            android:layout_height="22sp" app:srcCompat="@drawable/item_list_row_note"
+            android:id="@+id/imageView2" android:layout_alignParentRight="true" android:layout_marginRight="50sp"
+            android:layout_centerVertical="true" android:layout_toStartOf="@id/item_delete"
+            android:layout_toLeftOf="@id/item_delete"/>
 
 
 </RelativeLayout>
