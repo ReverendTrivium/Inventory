@@ -16,7 +16,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/ReverendTrivium/FromStore2Core">
+  <a href="https://github.com/ReverendTrivium/Inventory">
     <img src="https://i.imgur.com/hrjHvIK.png" alt="Logo" width="150" height="150">
   </a>
 
@@ -24,15 +24,15 @@
 <p align="center">
     A Inventory Management and Grocery List Android App.
     <br />
-    <a href="https://github.com/ReverendTrivium/FromStore2Core"><strong>Explore this project »</strong></a>
+    <a href="https://github.com/ReverendTrivium/Inventory"><strong>Explore this project »</strong></a>
     <br />
     <br />
     ·
-    <a href="https://github.com/ReverendTrivium/FromStore2Core/wiki">Wiki</a>
+    <a href="https://github.com/ReverendTrivium/Inventory/wiki">Wiki</a>
     ·
-    <a href="https://github.com/ReverendTrivium/FromStore2Core/issues">Report Bug</a>
+    <a href="https://github.com/ReverendTrivium/Inventory/issues">Report Bug</a>
     ·
-    <a href="https://github.com/ReverendTrivium/FromStore2Core/issues">Request Feature</a>
+    <a href="https://github.com/ReverendTrivium/Inventory/issues">Request Feature</a>
   </p>
 </div>
 
@@ -94,7 +94,7 @@ _Below are the necessary steps needed to run this project._
 
 1. Clone the repo:
    ```sh
-   git clone https://github.com/ReverendTrivium/FromStore2Core.git
+   git clone https://github.com/ReverendTrivium/Inventory.git
    ```
 2. Create a `.env` file in the root project folder and populate it with all the variables in `.env.example`.
 3. You can now build and run the application using maven or the provided docker file.
@@ -147,7 +147,7 @@ More information can be found [here](https://creativecommons.org/licenses/by-nc-
 
 Derrick Eberlein - [@mx.cyberagent](https://www.instagram.com/mx.cyberagent/) - derrickeberlein@gmail.com
 
-Project Link: [https://github.com/ReverendTrivium/FromStore2Core](https://github.com/ReverendTrivium/FromStore2Core)
+Project Link: [https://github.com/ReverendTrivium/Inventory](https://github.com/ReverendTrivium/Inventory)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -166,14 +166,14 @@ Below are some resources that have been instrumental in making this project a re
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[forks-shield]: https://img.shields.io/github/forks/ReverendTrivium/FromStore2Core?style=for-the-badge
-[forks-url]: https://github.com/ReverendTrivium/FromStore2Core/forks
-[watchers-shield]: https://img.shields.io/github/watchers/ReverendTrivium/FromStore2Core?style=for-the-badge
-[watchers-url]: https://github.com/ReverendTrivium/FromStore2Core/watchers
-[issues-shield]: https://img.shields.io/github/issues/ReverendTrivium/FromStore2Core?style=for-the-badge
-[issues-url]: https://github.com/ReverendTrivium/FromStore2Core/issues
+[forks-shield]: https://img.shields.io/github/forks/ReverendTrivium/Inventory?style=for-the-badge
+[forks-url]: https://github.com/ReverendTrivium/Inventory/forks
+[watchers-shield]: https://img.shields.io/github/watchers/ReverendTrivium/Inventory?style=for-the-badge
+[watchers-url]: https://github.com/ReverendTrivium/Inventory/watchers
+[issues-shield]: https://img.shields.io/github/issues/ReverendTrivium/Inventory?style=for-the-badge
+[issues-url]: https://github.com/ReverendTrivium/Inventory/issues
 [license-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg?style=for-the-badge
-[license-url]: https://github.com/ReverendTrivium/FromStore2Core/blob/master/LICENSE
+[license-url]: https://github.com/ReverendTrivium/Inventory/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/derrickeberlein/
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
