@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import org.junit.Test;
 
