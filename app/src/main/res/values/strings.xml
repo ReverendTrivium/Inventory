@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FromStoreToCore</string>
+    <string name="app_name">Inventory</string>
     <string name="no_description">No description</string>
     <string name="untitled">Untitled</string>
     <string name="save">Create a new list</string>
@@ -41,4 +41,11 @@
     <string name="discard">Discard changes</string>
     <string name="edit">Keep editing</string>
     <string name="sort_dialog_msg">Sort By</string>
+    <string name="inventory">Inventory</string>
+    <string name="item">Item</string>
+    <string name="new_list">New List</string>
+    <string name="load_list">Load List</string>
+    <string name="grocery_list">Grocery List</string>
+    <string name="amount">Amount: </string>
+    <string name="grocery_lists">Grocery Lists</string>
 </resources>

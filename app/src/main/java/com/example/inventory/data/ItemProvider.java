@@ -1,4 +1,4 @@
-package com.example.fromstore2core.data;
+package com.example.inventory.data;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -8,17 +8,22 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.util.Log;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-public class ItemProvider extends ContentProvider{
+public class ItemProvider extends ContentProvider {
 
 
-    /** URI matcher code for the content URI for the items table */
+    /**
+     * URI matcher code for the content URI for the items table
+     */
     private static final int ITEMS = 100;
 
-    /** URI matcher code for the content URI for a single item in the items table */
+    /**
+     * URI matcher code for the content URI for a single item in the items table
+     */
     private static final int ITEM_ID = 101;
 
     /**
@@ -41,7 +46,9 @@ public class ItemProvider extends ContentProvider{
         sUriMatcher.addURI(ItemContract.CONTENT_AUTHORITY, ItemContract.PATH_INVENTORY + "/#", ITEM_ID);
     }
 
-    /** Database helper object */
+    /**
+     * Database helper object
+     */
     private ItemDbHelper mDbHelper;
 
     @Override
@@ -75,7 +82,7 @@ public class ItemProvider extends ContentProvider{
                 // selection, we have 1 String in the selection arguments' String array.
                 selection = ItemContract.ItemEntry._ID + "=?";
                 //parseId follows convention where id is at the end of the uri
-                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
 
                 //cursor contains a single row specified by row ID
                 cursor = database.query(ItemContract.ItemEntry.TABLE_NAME, projection, selection, selectionArgs,
@@ -162,7 +169,7 @@ public class ItemProvider extends ContentProvider{
             case ITEM_ID:
                 // Delete a single row given by the ID in the URI
                 selection = ItemContract.ItemEntry._ID + "=?";
-                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 rowsDeleted = database.delete(ItemContract.ItemEntry.TABLE_NAME, selection, selectionArgs);
                 break;
             default:
@@ -187,7 +194,7 @@ public class ItemProvider extends ContentProvider{
                 return updatePet(uri, values, selection, selectionArgs);
             case ITEM_ID:
                 selection = ItemContract.ItemEntry._ID + "=?";
-                selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
+                selectionArgs = new String[]{String.valueOf(ContentUris.parseId(uri))};
                 return updatePet(uri, values, selection, selectionArgs);
             default:
                 throw new IllegalArgumentException("Update is not supported for " + uri);

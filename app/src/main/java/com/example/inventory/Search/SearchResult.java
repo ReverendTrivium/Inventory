@@ -1,4 +1,4 @@
-package com.example.fromstore2core.Search;
+package com.example.inventory.Search;
 
 public class SearchResult {
 
@@ -6,37 +6,37 @@ public class SearchResult {
     public String name;
     public Double quantity;
 
-    public SearchResult(int id, String name, Double quanity, Double price){
+    public SearchResult(int id, String name, Double quanity, Double price) {
         this._id = id;
         this.name = name;
         this.quantity = quanity;
     }
 
-    public SearchResult(){
+    public SearchResult() {
 
     }
 
-    public int getId(){
+    public int getId() {
         return _id;
     }
 
-    public void setId(int id){
+    public void setId(int id) {
         this._id = id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Double getQuantity(){
+    public Double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Double quantity){
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 

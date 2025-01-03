@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import android.os.Bundle;
 import android.text.InputType;
@@ -8,16 +8,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.fromstore2core.data.GroceryListDAO;
-import com.example.fromstore2core.data.GroceryListItemsDAO;
-import com.example.fromstore2core.data.ItemDbHelper;
-import com.example.fromstore2core.grocerylist.GroceryList;
-import com.example.fromstore2core.grocerylist.GroceryListItems;
+
+import com.example.inventory.data.GroceryListDAO;
+import com.example.inventory.data.GroceryListItemsDAO;
+import com.example.inventory.data.ItemDbHelper;
+import com.example.inventory.grocerylist.GroceryList;
+import com.example.inventory.grocerylist.GroceryListItems;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +28,7 @@ import java.util.Objects;
 
 public class NewList extends AppCompatActivity {
 
-    private ArrayList<String> items = new ArrayList<>();
+    private final ArrayList<String> items = new ArrayList<>();
     private static ArrayList<GroceryListItems> groceryItems = new ArrayList<>();
     private static ListView lv_groceryList;
     private static GroceryList grocerylist;
@@ -46,8 +49,11 @@ public class NewList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_list);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        // Find the TextView
+        TextView saveListTextView = findViewById(R.id.SaveList);
+
+        // Set the text using getName()
+        saveListTextView.setText(this.getIntent().getExtras().getString("groceryListName"));
 
         // Create a new instance of the database for access to the searchbar
         database = new ItemDbHelper(this);
@@ -59,8 +65,6 @@ public class NewList extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        //displays the name of the grocery list in the header
-        this.setTitle(grocerylist.getName() + ": Grocery List");
         //Query the database for all the items associated with the list
         groceryItems = groceryListItemsDAO.getListItems(grocerylist.getId());
 
@@ -102,10 +106,10 @@ public class NewList extends AppCompatActivity {
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
         builder.setPositiveButton("OK", (dialog, which) -> {
-                    String itemNote = input.getText().toString();
+            String itemNote = input.getText().toString();
 
 
-                });
+        });
         builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
         builder.show();
 
@@ -202,6 +206,3 @@ public class NewList extends AppCompatActivity {
         return isFound;
     }
 }
-
-
-

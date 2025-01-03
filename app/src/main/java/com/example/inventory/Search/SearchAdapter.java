@@ -1,18 +1,20 @@
-package com.example.fromstore2core.Search;
+package com.example.inventory.Search;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.fromstore2core.R;
+
+import com.example.inventory.R;
 
 import java.util.List;
 
 
-class SearchViewHolder extends RecyclerView.ViewHolder{
+class SearchViewHolder extends RecyclerView.ViewHolder {
 
     public TextView searchName;
 
@@ -23,12 +25,12 @@ class SearchViewHolder extends RecyclerView.ViewHolder{
     }
 }
 
-public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder>{
+public class SearchAdapter extends RecyclerView.Adapter<SearchViewHolder> {
 
     private Context context;
     private List<SearchResult> searchResults;
 
-    public SearchAdapter (Context context, List<SearchResult> searchResults){
+    public SearchAdapter(Context context, List<SearchResult> searchResults) {
         this.context = context;
         this.searchResults = searchResults;
     }

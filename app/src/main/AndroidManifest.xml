@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.fromstore2core">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Inventory"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FromStoreToCore">
+        tools:replace="android:label"
+        android:theme="@style/Theme.Inventory">
         <activity
-            android:name="com.example.fromstore2core.MainActivity"
+            android:name="com.example.inventory.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,27 +20,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.fromstore2core.NewList"
+            android:name="com.example.inventory.NewList"
             android:exported="true" />
         <activity
-            android:name="com.example.fromstore2core.LoadList"
+            android:name="com.example.inventory.LoadList"
             android:exported="true" />
         <activity
-                android:name="com.example.fromstore2core.CatalogActivity"
+                android:name="com.example.inventory.CatalogActivity"
                 android:theme="@style/AppTheme"
                 android:exported="true" />
         <activity
-                android:name="com.example.fromstore2core.EditorActivity"
-                android:parentActivityName="com.example.fromstore2core.CatalogActivity"
+                android:name="com.example.inventory.EditorActivity"
+                android:parentActivityName="com.example.inventory.CatalogActivity"
                 android:exported="true" />
         <activity
-                android:name="com.example.fromstore2core.ItemActivity"
-                android:parentActivityName="com.example.fromstore2core.CatalogActivity"
+                android:name="com.example.inventory.ItemActivity"
+                android:parentActivityName="com.example.inventory.CatalogActivity"
                 android:theme="@style/noTitle"
                 android:exported="true" />
         <provider
-                android:name="com.example.fromstore2core.data.ItemProvider"
-                android:authorities="com.example.fromstore2core"
+                android:name="com.example.inventory.data.ItemProvider"
+                android:authorities="com.example.inventory"
                 android:exported="false" />
 
     </application>

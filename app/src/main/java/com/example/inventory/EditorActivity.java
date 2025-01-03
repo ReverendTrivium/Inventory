@@ -1,9 +1,13 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.LoaderManager;
-import android.content.*;
+import android.content.ContentValues;
+import android.content.CursorLoader;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.Loader;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,10 +24,13 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NavUtils;
-import com.example.fromstore2core.data.ItemContract;
+
+import com.example.inventory.R;
+import com.example.inventory.data.ItemContract;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.ByteArrayInputStream;
@@ -149,7 +156,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         mNameEditText = (EditText) findViewById(R.id.edit_item_name);
         mQuantityEditText = (EditText) findViewById(R.id.edit_item_quantity);
-        mDescriptionEditText = (EditText) findViewById(R.id.edit_item_description);
         mItemImageView = (ImageView) findViewById(R.id.edit_item_image);
         mTag1EditText = (EditText) findViewById(R.id.edit_item_tag1);
         mTag2EditText = (EditText) findViewById(R.id.edit_item_tag2);
@@ -158,13 +164,12 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
 
         mNameEditText.setOnTouchListener(mTouchListener);
         mQuantityEditText.setOnTouchListener(mTouchListener);
-        mDescriptionEditText.setOnTouchListener(mTouchListener);
         mTag1EditText.setOnTouchListener(mTouchListener);
         mTag2EditText.setOnTouchListener(mTouchListener);
         mTag3EditText.setOnTouchListener(mTouchListener);
         fab.setOnTouchListener(mTouchListener);
 
-        mItemBitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.image_prompt)).getBitmap();
+        mItemBitmap = ((BitmapDrawable) getResources().getDrawable(R.drawable.image_prompt)).getBitmap();
 
         mItemImageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -172,7 +177,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 Dialog d = new Dialog(EditorActivity.this);
                 d.setContentView(R.layout.custom_dialog);
                 ImageView image_full = (ImageView) d.findViewById(R.id.image_full);
-                if(mItemBitmap != null)
+                if (mItemBitmap != null)
                     image_full.setImageBitmap(mItemBitmap);
                 d.show();
             }
@@ -185,12 +190,11 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         // Use trim to eliminate leading or trailing white space
         String nameString = mNameEditText.getText().toString().trim();
         String quantityString = mQuantityEditText.getText().toString().trim();
-        String descriptionString = mDescriptionEditText.getText().toString().trim();
         String tag1String = mTag1EditText.getText().toString().trim();
         String tag2String = mTag2EditText.getText().toString().trim();
         String tag3String = mTag3EditText.getText().toString().trim();
         String imageUri;
-        if(selectedImage == null)
+        if (selectedImage == null)
             imageUri = "null";
         else
             imageUri = selectedImage.toString();     // may cause error since default is null
@@ -204,14 +208,13 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         mItemBitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] photo = baos.toByteArray();
 
-        Log.e("save method","converted to byte array");
+        Log.e("save method", "converted to byte array");
 
         // Create a ContentValues object where column names are the keys,
         // and pet attributes from the editor are the values.
         ContentValues values = new ContentValues();
         values.put(ItemContract.ItemEntry.COLUMN_ITEM_NAME, nameString);
         values.put(ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY, quantityInteger);
-        values.put(ItemContract.ItemEntry.COLUMN_ITEM_DESCRIPTION, descriptionString);
         values.put(ItemContract.ItemEntry.COLUMN_ITEM_TAG1, tag1String);
         values.put(ItemContract.ItemEntry.COLUMN_ITEM_TAG2, tag2String);
         values.put(ItemContract.ItemEntry.COLUMN_ITEM_TAG3, tag3String);
@@ -303,7 +306,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 return true;
             case android.R.id.home:
                 // Navigate up to parent activity
-                if(mItemHasChanged)
+                if (mItemHasChanged)
                     showUnsavedChangesDialog();
                 else
                     finish();
@@ -320,7 +323,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                 ItemContract.ItemEntry._ID,
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME,
                 ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY,
-                ItemContract.ItemEntry.COLUMN_ITEM_DESCRIPTION,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG1,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG2,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG3,
@@ -349,7 +351,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             // Find the columns of pet attributes that we're interested in
             int nameColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_NAME);
             int quantityColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY);
-            int descriptionColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_DESCRIPTION);
             int tag1ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG1);
             int tag2ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG2);
             int tag3ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG3);
@@ -360,7 +361,6 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             // Extract out the value from the Cursor for the given column index
             String name = data.getString(nameColumnIndex);
             int quantity = data.getInt(quantityColumnIndex);
-            String description = data.getString(descriptionColumnIndex);
             String tag1 = data.getString(tag1ColumnIndex);
             String tag2 = data.getString(tag2ColumnIndex);
             String tag3 = data.getString(tag3ColumnIndex);
@@ -375,13 +375,12 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
             mNameEditText.setText(name);
             mQuantityEditText.setText(Integer.toString(quantity));
             DecimalFormat formatter = new DecimalFormat("#0.00");
-            mDescriptionEditText.setText(description);
             mTag1EditText.setText(tag1);
             mTag2EditText.setText(tag2);
             mTag3EditText.setText(tag3);
             mItemImageView.setImageBitmap(theImage);
             mItemBitmap = theImage;
-            if(imageURI == "null")
+            if (imageURI == "null")
                 selectedImage = null;
             else
                 selectedImage = Uri.parse(imageURI);
@@ -392,7 +391,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
         // If the loader is invalidated, clear out all the data from the input fields.
-        Bitmap tempItemBitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.image_prompt)).getBitmap();
+        Bitmap tempItemBitmap = ((BitmapDrawable) getResources().getDrawable(R.drawable.image_prompt)).getBitmap();
 
         mNameEditText.setText("");
         mQuantityEditText.setText("");
@@ -454,7 +453,7 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
         alertDialog.show();
     }
 
-    public void insertImage(View view){
+    public void insertImage(View view) {
         Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
         photoPickerIntent.setType("image/*");
         startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
@@ -463,8 +462,8 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Activity.RESULT_OK)
-            switch (requestCode){
+        if (resultCode == Activity.RESULT_OK)
+            switch (requestCode) {
                 case GALLERY_REQUEST:
                     selectedImage = data.getData();
                     Log.e("editor activity", selectedImage.toString());
@@ -472,16 +471,16 @@ public class EditorActivity extends AppCompatActivity implements LoaderManager.L
                         mItemBitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
                         int i = mItemBitmap.getAllocationByteCount();
                         // if less than 5MB set the image
-                        if(i < FIVE_MB) {
+                        if (i < FIVE_MB) {
                             mItemImageView.setImageBitmap(mItemBitmap);
                             Log.e("Editor Activity", "successfully converted image");
                         }
                         // otherwise keep the default image
-                        else{
-                            mItemBitmap = ((BitmapDrawable)getResources().getDrawable(R.drawable.image_prompt)).getBitmap();
+                        else {
+                            mItemBitmap = ((BitmapDrawable) getResources().getDrawable(R.drawable.image_prompt)).getBitmap();
                             selectedImage = null;
                             Log.e("Editor Activity", "image too large");
-                            Toast.makeText(this,"Image too large", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(this, "Image too large", Toast.LENGTH_SHORT).show();
                         }
                         Log.e("Editor Activity", String.valueOf(i));
                     } catch (IOException e) {

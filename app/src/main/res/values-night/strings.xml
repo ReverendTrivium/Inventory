@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="item">Item</string>
+    <string name="new_list">New List</string>
+    <string name="load_list">Load List</string>
+    <string name="grocery_lists">Grocery Lists</string>
+</resources>

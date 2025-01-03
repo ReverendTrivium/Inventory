@@ -1,6 +1,6 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
-import com.example.fromstore2core.Search.SearchResult;
+import com.example.inventory.Search.SearchResult;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public class MySuggestions {
     // Contains ids of newSuggestions
     public static List<Integer> newSuggestions_id;
 
-    public static int [] moreresults = new int[20];
+    public static int[] moreresults = new int[20];
 }

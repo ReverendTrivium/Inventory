@@ -1,6 +1,7 @@
-package com.example.fromstore2core.grocerylist;
+package com.example.inventory.grocerylist;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 public class GroceryList {
@@ -44,7 +45,7 @@ public class GroceryList {
         this.name = name;
     }
 
-    public GroceryList( int id, String name) {
+    public GroceryList(int id, String name) {
         setId(id);
         setName(name);
     }

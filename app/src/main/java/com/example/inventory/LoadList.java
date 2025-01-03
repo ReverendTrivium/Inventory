@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,13 +7,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.fromstore2core.data.DatabaseDAO;
-import com.example.fromstore2core.data.GroceryListDAO;
-import com.example.fromstore2core.data.GroceryListItemsDAO;
-import com.example.fromstore2core.grocerylist.GroceryList;
+
+import com.example.inventory.ListsListViewAdapter;
+import com.example.inventory.R;
+import com.example.inventory.data.DatabaseDAO;
+import com.example.inventory.data.GroceryListDAO;
+import com.example.inventory.data.GroceryListItemsDAO;
+import com.example.inventory.grocerylist.GroceryList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +33,6 @@ public class LoadList extends AppCompatActivity {
     GroceryListDAO groceryListDAO = new GroceryListDAO(this);
 
 
-
     //Runs when a new LoadList object is created
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,6 @@ public class LoadList extends AppCompatActivity {
         // calling the action bar
         ActionBar actionBar = getSupportActionBar();
         // showing the back button in action bar
-        actionBar.setDisplayHomeAsUpEnabled(true);
         try {
             grocerylist = (GroceryList) GroceryListDAO.selectAll(this);
         } catch (Exception e) {
@@ -63,6 +65,7 @@ public class LoadList extends AppCompatActivity {
 
                 Intent intent = new Intent(LoadList.this, NewList.class);
                 intent.putExtra("groceryList", clickedList.getId());
+                intent.putExtra("groceryListName", clickedList.getName());
                 startActivity(intent);
             }
         });

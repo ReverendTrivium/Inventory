@@ -1,16 +1,18 @@
-package com.example.fromstore2core.Search;
+package com.example.inventory.Search;
 
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.fromstore2core.R;
+
+import com.example.inventory.R;
 import com.mancj.materialsearchbar.adapter.SuggestionsAdapter;
 
-class SuggestionHolder extends RecyclerView.ViewHolder{
+class SuggestionHolder extends RecyclerView.ViewHolder {
 
     public TextView name;
 
@@ -21,7 +23,7 @@ class SuggestionHolder extends RecyclerView.ViewHolder{
     }
 }
 
-public class CustomSuggestionsAdapter extends SuggestionsAdapter<SearchResult, SuggestionHolder>{
+public class CustomSuggestionsAdapter extends SuggestionsAdapter<SearchResult, SuggestionHolder> {
 
     public CustomSuggestionsAdapter(LayoutInflater inflater) {
         super(inflater);

@@ -1,7 +1,12 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
+import android.annotation.SuppressLint;
 import android.app.LoaderManager;
-import android.content.*;
+import android.content.ContentUris;
+import android.content.CursorLoader;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -16,22 +21,24 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.fromstore2core.Search.CustomSuggestionsAdapter;
-import com.example.fromstore2core.Search.RecyclerTouchListener;
-import com.example.fromstore2core.Search.SearchAdapter;
-import com.example.fromstore2core.Search.SearchResult;
-import com.example.fromstore2core.data.ItemContract;
-import com.example.fromstore2core.data.ItemDbHelper;
+
+import com.example.inventory.Search.CustomSuggestionsAdapter;
+import com.example.inventory.Search.RecyclerTouchListener;
+import com.example.inventory.Search.SearchResult;
+import com.example.inventory.data.ItemContract;
+import com.example.inventory.data.ItemDbHelper;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.mancj.materialsearchbar.MaterialSearchBar;
 import com.mancj.materialsearchbar.adapter.SuggestionsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
 public class CatalogActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
 
     /**
@@ -78,11 +85,6 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
      * Current Sort Choice
      */
     private static int sort_choice = 2;
-
-
-    RecyclerView recyclerView;
-    RecyclerView.LayoutManager layoutManager;
-    SearchAdapter adapter;
 
     MaterialSearchBar materialSearchBar;
     CustomSuggestionsAdapter customSuggestionsAdapter;
@@ -186,7 +188,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
             public void onSearchConfirmed(CharSequence text) {
 
                 List<SearchResult> testResult1 = loadNewSearchResultList();
-                if(testResult1.isEmpty()) {
+                if (testResult1.isEmpty()) {
                     Toast.makeText(getBaseContext(), "No Results Found",
                             Toast.LENGTH_LONG).show();
                     return;
@@ -195,7 +197,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
                 String testResult4 = testResult2.getName();
                 int testResult3 = testResult2.getId();
 
-                if(text.toString().toLowerCase().equals(testResult4.toLowerCase())){
+                if (text.toString().toLowerCase().equals(testResult4.toLowerCase())) {
 //                    Toast.makeText(getBaseContext(), "Search Success!",
 //                            Toast.LENGTH_LONG).show();
 
@@ -212,8 +214,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
 
                     startActivity(intent);
 
-                }
-                else{
+                } else {
                     Toast.makeText(getBaseContext(), "No Results Found",
                             Toast.LENGTH_LONG).show();
                 }
@@ -255,7 +256,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         });
 
         // On click method for suggestions
-        RecyclerView searchrv = findViewById(R.id.mt_recycler);
+        @SuppressLint({"MissingInflatedId", "LocalSuppress"}) RecyclerView searchrv = findViewById(R.id.mt_recycler);
         searchrv.addOnItemTouchListener(new RecyclerTouchListener(getApplicationContext(), searchrv, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
@@ -305,7 +306,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         itemListView.setAdapter(mCursorAdapter);
 
 
-        // Setup FAB to open com.example.fromstore2core.EditorActivity
+        // Setup FAB to open com.example.inventory.EditorActivity
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.catalog_fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -319,7 +320,7 @@ public class CatalogActivity extends AppCompatActivity implements LoaderManager.
         itemListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                // Create new intent to go to {@link com.example.fromstore2core.EditorActivity}
+                // Create new intent to go to {@link com.example.inventory.EditorActivity}
                 Intent intent = new Intent(CatalogActivity.this, ItemActivity.class);
 
                 // Form the content URI that represents the specific pet that was clicked on,

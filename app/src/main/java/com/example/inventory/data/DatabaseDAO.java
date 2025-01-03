@@ -1,4 +1,4 @@
-package com.example.fromstore2core.data;
+package com.example.inventory.data;
 
 
 import android.content.Context;
@@ -6,7 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
-import com.example.fromstore2core.grocerylist.GroceryList;
+
+import com.example.inventory.grocerylist.GroceryList;
 
 import java.util.ArrayList;
 

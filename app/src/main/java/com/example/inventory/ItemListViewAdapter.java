@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import android.content.Context;
 import android.graphics.Paint;
@@ -10,11 +10,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.example.fromstore2core.grocerylist.GroceryListItems;
+
+import com.example.inventory.R;
+import com.example.inventory.grocerylist.GroceryListItems;
 
 import java.util.ArrayList;
+
 public class ItemListViewAdapter extends ArrayAdapter<GroceryListItems> {
 
     //Creates ItemListViewAdapter instance
@@ -29,7 +33,7 @@ public class ItemListViewAdapter extends ArrayAdapter<GroceryListItems> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         GroceryListItems items = getItem(position);
 
-        if(convertView == null){
+        if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_list_row, parent, false);
         }
 

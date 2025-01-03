@@ -7,7 +7,8 @@
         android:id="@+id/newItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Item"
+        android:hint="@string/item"
+        android:importantForAutofill="no"
         android:minHeight="48dp" />
 
 <!-- THIS ADDS TWO FIELDS TO THE ALERT DIALOG LAYOUT XML

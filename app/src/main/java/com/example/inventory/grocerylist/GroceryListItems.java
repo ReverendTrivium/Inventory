@@ -1,8 +1,10 @@
-package com.example.fromstore2core.grocerylist;
+package com.example.inventory.grocerylist;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
-import com.example.fromstore2core.R;
+
+import com.example.inventory.R;
 
 import java.io.Serializable;
 
@@ -13,10 +15,14 @@ public class GroceryListItems implements Serializable {
     private boolean checked;
 
     //Function to check if the item is crossed off or not
-    public boolean isChecked() { return checked; }
+    public boolean isChecked() {
+        return checked;
+    }
 
     //Crosses item off
-    public void setChecked(boolean checked) { this.checked = checked; }
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
 
     //Getter and setter for Description variable
     public String getDescription() {

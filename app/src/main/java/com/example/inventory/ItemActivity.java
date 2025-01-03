@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import android.app.LoaderManager;
 import android.content.CursorLoader;
@@ -17,10 +17,13 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import com.example.fromstore2core.data.ItemContract;
+
+import com.example.inventory.R;
+import com.example.inventory.data.ItemContract;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.ByteArrayInputStream;
@@ -65,7 +68,6 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // find references to TextViews
         quantityView = (TextView) findViewById(R.id.item_quantity_field);
-        descriptionView = (TextView) findViewById(R.id.item_description_field);
         tag1View = (TextView) findViewById(R.id.item_tag1_field);
         tag2View = (TextView) findViewById(R.id.item_tag2_field);
         tag3View = (TextView) findViewById(R.id.item_tag3_field);
@@ -144,7 +146,7 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
             case android.R.id.home:
                 // Navigate up to parent activity
                 // Show a dialog later on asking if user really wants to leave
-                // NavUtils.navigateUpFromSameTask(com.example.fromstore2core.ItemActivity.this);
+                // NavUtils.navigateUpFromSameTask(com.example.inventory.ItemActivity.this);
                 finish();
                 return true;
         }
@@ -159,7 +161,6 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
                 ItemContract.ItemEntry._ID,
                 ItemContract.ItemEntry.COLUMN_ITEM_NAME,
                 ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY,
-                ItemContract.ItemEntry.COLUMN_ITEM_DESCRIPTION,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG1,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG2,
                 ItemContract.ItemEntry.COLUMN_ITEM_TAG3,
@@ -185,7 +186,6 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
             // Find the columns of pet attributes that we're interested in
             int nameColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_NAME);
             int quantityColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_QUANTITY);
-            int descriptionColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_DESCRIPTION);
             int tag1ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG1);
             int tag2ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG2);
             int tag3ColumnIndex = data.getColumnIndex(ItemContract.ItemEntry.COLUMN_ITEM_TAG3);
@@ -194,7 +194,6 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
             // Extract out the value from the Cursor for the given column index
             String name = data.getString(nameColumnIndex);
             int quantity = data.getInt(quantityColumnIndex);
-            String description = data.getString(descriptionColumnIndex);
             String tag1 = data.getString(tag1ColumnIndex);
             String tag2 = data.getString(tag2ColumnIndex);
             String tag3 = data.getString(tag3ColumnIndex);
@@ -209,7 +208,6 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
             // Update the views on the screen with the values from the database
             quantityView.setText(Integer.toString(quantity));
             DecimalFormat formatter = new DecimalFormat("#0.00");
-            descriptionView.setText(description);
             imageView.setImageBitmap(theImage);
 
             // Initially no tags
@@ -230,8 +228,7 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
                         tag3View.setText(tag3);
                         tag3View.setVisibility(View.VISIBLE);
                         return;
-                    }
-                    else
+                    } else
                         return;
                 } else if (!tag3.isEmpty()) {
                     tag2View.setText(tag3);
@@ -242,19 +239,17 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
                 tag1View.setText(tag2);
                 tag1View.setVisibility(View.VISIBLE);
 
-                if(!tag3.isEmpty()){
+                if (!tag3.isEmpty()) {
                     tag2View.setText(tag3);
                     tag2View.setVisibility(View.VISIBLE);
                     return;
-                }
-                else
+                } else
                     return;
             } else if (!tag3.isEmpty()) {
                 tag1View.setText(tag3);
                 tag1View.setVisibility(View.VISIBLE);
                 return;
             }
-
 
 
         }
@@ -271,7 +266,6 @@ public class ItemActivity extends AppCompatActivity implements LoaderManager.Loa
 
         // Update the views on the screen with the values from the database
         quantityView.setText("");
-        descriptionView.setText("");
         tag1View.setText("");
         tag2View.setText("");
         tag3View.setText("");

@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,9 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.fromstore2core.data.GroceryListDAO;
-import com.example.fromstore2core.grocerylist.GroceryList;
+
+import com.example.inventory.R;
+import com.example.inventory.data.GroceryListDAO;
+import com.example.inventory.grocerylist.GroceryList;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Inventory(View view) throws Exception {
-        Intent intent = new Intent (MainActivity.this, CatalogActivity.class);
+        Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
         startActivity(intent);
     }
 }

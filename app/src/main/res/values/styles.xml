@@ -7,6 +7,7 @@
         <item name="colorPrimaryDark">@color/dodger_blue_dark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+        <item name="android:textColorPrimary">@color/black</item>
     </style>
 
     <!-- Theme for Overflow menu -->
@@ -30,7 +31,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:paddingTop">16dp</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textAppearance">?android:textAppearanceSmall</item>
     </style>
@@ -52,6 +53,7 @@
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Style for an EditText field in the editor -->
@@ -61,6 +63,7 @@
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <!-- Style for an EditText field in the editor -->
@@ -69,7 +72,7 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:paddingTop">16dp</item>
-        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textAppearance">?android:textAppearanceMedium</item>
     </style>
 
@@ -99,7 +102,4 @@
         <item name="mt_placeholderColor">@color/dodger_blue</item>
         <item name="mt_textCursorTint">@color/dodger_blue</item>
     </style>
-
-
-
 </resources>

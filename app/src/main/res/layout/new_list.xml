@@ -17,17 +17,21 @@
         android:layout_marginBottom="4dp"
         android:backgroundTint="#2196F3"
         android:clickable="true"
+        android:contentDescription="@android:string/unknownName"
+        android:focusable="true"
         android:onClick="AddItem"
         android:src="@android:drawable/ic_input_add"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lv_groceryList" />
+        app:layout_constraintTop_toBottomOf="@+id/lv_groceryList"
+        tools:ignore="UsingOnClickInXml" />
 
     <ListView
         android:id="@+id/lv_groceryList"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="72dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -42,10 +46,11 @@
         android:layout_marginTop="28dp"
         android:fontFamily="sans-serif-medium"
         android:lineSpacingExtra="10sp"
-        android:text="Grocery List"
+        android:text="@{groceryList.name}"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

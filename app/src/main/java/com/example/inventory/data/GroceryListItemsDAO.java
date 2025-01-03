@@ -1,12 +1,13 @@
-package com.example.fromstore2core.data;
+package com.example.inventory.data;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.example.fromstore2core.grocerylist.GroceryList;
-import com.example.fromstore2core.grocerylist.GroceryListItems;
+
+import com.example.inventory.grocerylist.GroceryList;
+import com.example.inventory.grocerylist.GroceryListItems;
 
 import java.util.ArrayList;
 
@@ -46,7 +47,7 @@ public class GroceryListItemsDAO {
     private static GroceryListItems selectLast(Context context, SQLiteDatabase db) throws Exception {
         try {
             // Add the rest of the fields inside the { }
-            Cursor cursor = db.query(TABLE_NAME, new String[] { FIELD_ID, FIELD_IDGROCERYLIST, FIELD_PRODUCT, FIELD_CHECKED }, null, null, null,null, FIELD_ID + " desc");
+            Cursor cursor = db.query(TABLE_NAME, new String[]{FIELD_ID, FIELD_IDGROCERYLIST, FIELD_PRODUCT, FIELD_CHECKED}, null, null, null, null, FIELD_ID + " desc");
             if (cursor.moveToNext()) {
                 return returnClassInstance(context, cursor);
             }
@@ -112,7 +113,7 @@ public class GroceryListItemsDAO {
         cv.put(FIELD_PRODUCT, itemShoppingList.getDescription());
         cv.put(FIELD_CHECKED, String.valueOf(itemShoppingList.isChecked()));
         try {
-            db.update(TABLE_NAME, cv, FIELD_ID + " = ?", new String[] { String.valueOf(itemShoppingList.getId()) });
+            db.update(TABLE_NAME, cv, FIELD_ID + " = ?", new String[]{String.valueOf(itemShoppingList.getId())});
         } catch (Exception e) {
             throw new Exception(e.getMessage(), e);
         }
@@ -144,7 +145,7 @@ public class GroceryListItemsDAO {
         try {
             SQLiteDatabase db = new DatabaseDAO(context).getReadableDatabase();
 
-            Cursor cursor = db.query(TABLE_NAME, new String[] { FIELD_ID, FIELD_IDGROCERYLIST, FIELD_PRODUCT, FIELD_CHECKED }, FIELD_ID + " = ?", new String[] { String.valueOf(idItemShoppingList) }, null, null, null);
+            Cursor cursor = db.query(TABLE_NAME, new String[]{FIELD_ID, FIELD_IDGROCERYLIST, FIELD_PRODUCT, FIELD_CHECKED}, FIELD_ID + " = ?", new String[]{String.valueOf(idItemShoppingList)}, null, null, null);
 
             if (cursor.moveToNext()) {
 

@@ -1,4 +1,4 @@
-package com.example.fromstore2core;
+package com.example.inventory;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.Toast;
-import com.example.fromstore2core.R;
-import com.example.fromstore2core.data.GroceryListDAO;
-import com.example.fromstore2core.grocerylist.GroceryList;
+import com.example.inventory.R;
+import com.example.inventory.data.GroceryListDAO;
+import com.example.inventory.grocerylist.GroceryList;
 
 public class ShoppingListCursorAdapter extends CursorAdapter {
     private Context context;

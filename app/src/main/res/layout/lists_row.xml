@@ -11,8 +11,8 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/list_name"
         android:layout_marginBottom="2sp"
-        android:textColor="#A9E0F4"
         android:textStyle="bold"
+        android:textColor="?android:attr/textColorPrimary"
         />
 
     <TextView
@@ -21,8 +21,8 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_marginLeft="28sp"
-        android:textColor="#000"
         android:textSize="20sp"
+        android:textColor="?android:attr/textColorPrimary"
         />
 
 

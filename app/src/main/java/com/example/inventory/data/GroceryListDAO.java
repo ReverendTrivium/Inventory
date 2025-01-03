@@ -1,11 +1,12 @@
-package com.example.fromstore2core.data;
+package com.example.inventory.data;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import com.example.fromstore2core.grocerylist.GroceryList;
+
+import com.example.inventory.grocerylist.GroceryList;
 
 import java.io.IOException;
 
@@ -24,7 +25,7 @@ public class GroceryListDAO {
     public static GroceryList select(Context context, int idShoppingList) throws IOException {
         SQLiteDatabase db = new DatabaseDAO(context).getReadableDatabase();
         try {
-            Cursor cursor = db.query(TABLE_NAME, new String[] { FIELD_ID, FIELD_NAME }, FIELD_ID + " = ?", new String[] { String.valueOf(idShoppingList) }, null, null, null);
+            Cursor cursor = db.query(TABLE_NAME, new String[]{FIELD_ID, FIELD_NAME}, FIELD_ID + " = ?", new String[]{String.valueOf(idShoppingList)}, null, null, null);
             if (cursor.moveToFirst()) {
                 return returnClassInstance(context, cursor);
             }
@@ -68,7 +69,6 @@ public class GroceryListDAO {
     }
 
 
-
     //Inserts instance of the GroceryList class into the DAO
     public static GroceryList insert(Context context, GroceryList groceryList) throws Exception {
         SQLiteDatabase db = new DatabaseDAO(context).getWritableDatabase();
@@ -86,7 +86,7 @@ public class GroceryListDAO {
     //Selects the last item in an instance of the GroceryList class
     private static GroceryList selectLast(Context context, SQLiteDatabase db) throws Exception {
         try {
-            Cursor cursor = db.query(TABLE_NAME, new String[] { FIELD_ID, FIELD_NAME }, null, null, null, null, FIELD_ID + " desc");
+            Cursor cursor = db.query(TABLE_NAME, new String[]{FIELD_ID, FIELD_NAME}, null, null, null, null, FIELD_ID + " desc");
             if (cursor.moveToFirst()) {
                 return returnClassInstance(context, cursor);
             }
