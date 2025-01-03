@@ -1,7 +1,6 @@
 package com.example.inventory;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.inventory.R;
 import com.example.inventory.data.GroceryListDAO;
 import com.example.inventory.grocerylist.GroceryList;
 
@@ -37,18 +35,15 @@ public class MainActivity extends AppCompatActivity {
         final EditText edName = new EditText(this);
         alert.setView(edName);
 
-        alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+        //Runs when button is tapped
+        alert.setPositiveButton(android.R.string.ok, (dialog, whichButton) -> {
 
-            //Runs when button is tapped
-            public void onClick(DialogInterface dialog, int whichButton) {
-
-                groceryList.setName(MainActivity.this, edName.getText().toString());
-                try {
-                    startActivity(new Intent(MainActivity.this, NewList.class).putExtra("groceryList", GroceryListDAO.insert(MainActivity.this, groceryList).getId()));
-                } catch (Exception e) {
-                    Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-                }
+            groceryList.setName(MainActivity.this, edName.getText().toString());
+            try {
+                startActivity(new Intent(MainActivity.this, NewList.class).putExtra("groceryList", GroceryListDAO.insert(MainActivity.this, groceryList).getId()).putExtra("groceryListName", groceryList.getName()));
+            } catch (Exception e) {
+                Toast.makeText(MainActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                e.printStackTrace();
             }
         });
 
@@ -57,14 +52,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Loads a list
-    public void LoadList(View view) throws Exception {
+    public void LoadList(View view) {
 
         Intent intent = new Intent(MainActivity.this, LoadList.class);
         startActivity(intent);
 
     }
 
-    public void Inventory(View view) throws Exception {
+    public void Inventory(View view) {
         Intent intent = new Intent(MainActivity.this, CatalogActivity.class);
         startActivity(intent);
     }
