@@ -17,7 +17,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/ReverendTrivium/Inventory">
-    <img src="https://i.imgur.com/hrjHvIK.png" alt="Logo" width="150" height="150">
+    <img src="https://i.imgur.com/EXpD2Av.png" alt="Logo" width="150" height="150">
   </a>
 
 <h3 align="center">Inventory</h3>
